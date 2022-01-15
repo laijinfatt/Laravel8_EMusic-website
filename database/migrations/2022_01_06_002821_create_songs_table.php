@@ -20,7 +20,7 @@ class CreateSongsTable extends Migration
             $table->integer('musicID');
             $table->longText('lyrics');
             $table->string('description');
-            $table->double('duration',2,2);
+            $table->double('duration',3,2);
             $table->timestamps();
         });
     }
