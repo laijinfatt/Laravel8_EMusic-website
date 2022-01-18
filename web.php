@@ -27,7 +27,7 @@ Route::get('/addArtist',function(){
 });
 
 Route::get('/addAlbum',function(){
-    return view('addAlbum');
+    return view('addAlbum',['songID'=>App\Models\Song::all()],['artistID'=>App\Models\Artist::all()]);
 });
 
 Route::post('/addMusic/store',[App\Http\Controllers\MusicController::class,'add'])->name('addMusic');
@@ -38,13 +38,28 @@ Route::post('/addArtist',[App\Http\Controllers\ArtistController::class,'add'])->
 
 Route::post('/addAlbum',[App\Http\Controllers\AlbumController::class,'add'])->name('addAlbum');
 
-Route::get('/songs',[App\Http\Controllers\SongController::class,'view'])->name('showSong');
+Route::get('/showSong',[App\Http\Controllers\SongController::class,'view'])->name('showSong');
 
 Route::get('/showMusic',[App\Http\Controllers\MusicController::class,'view'])->name('showMusic');
 
 Route::get('/showArtist',[App\Http\Controllers\ArtistController::class,'view'])->name('showArtist');
 
 Route::get('/showAlbum',[App\Http\Controllers\AlbumController::class,'view'])->name('showAlbum');
+
+Route::get('/editSong/{id}',[App\Http\Controllers\SongController::class,'edit'])->name('editSong');
+
+Route::post('/updateSong',[App\Http\Controllers\SongController::class,'update'])->name('updateSong');
+
+Route::get('/editAlbum/{id}',[App\Http\Controllers\AlbumController::class,'edit'])->name('editAlbum');
+
+Route::post('/updateAlbum',[App\Http\Controllers\AlbumController::class,'update'])->name('updateAlbum');
+
+Route::get('/deleteSong/{id}',[App\Http\Controllers\SongController::class,'delete'])->name('deleteSong');
+
+Route::get('/deleteAlbum/{id}',[App\Http\Controllers\AlbumController::class,'delete'])->name('deleteAlbum');
+
+Route::post('/viewSong',[App\Http\Controllers\SongController::class,'searchSong'])->
+name('search.song');
 
 Route::get('/index', function () {
     return view('index');

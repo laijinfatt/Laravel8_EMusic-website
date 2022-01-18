@@ -46,6 +46,11 @@
                 <input type="text" class="form-control" id="duration" name="duration">                
             </div>
 
+            <div class="form-group">
+                <label for="file">Song File</label>
+                <input type="file" class="form-control" id="file" name="file">                
+            </div>
+
             <button type="submit" class="btn btn-primary">Add New</button>
         </form>
         <br><br>
